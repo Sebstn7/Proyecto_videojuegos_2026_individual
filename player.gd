@@ -1,23 +1,53 @@
 extends CharacterBody2D
 
-var speed = 120
 var grid_size = 32
+var moving = false
+var target_position = Vector2.ZERO
+var move_speed = 120
+
+func _ready():
+	target_position = global_position
 
 func _physics_process(delta):
+
+	# Movimiento suave
+	if moving:
+
+		global_position = global_position.move_toward(
+			target_position,
+			move_speed * delta
+		)
+
+		# Llegó a la celda
+		if global_position.distance_to(target_position) < 1:
+
+			global_position = target_position
+			moving = false
+
+		return
+
+	# Dirección
 	var direction = Vector2.ZERO
 
 	if Input.is_action_pressed("ui_right"):
-		direction.x = 1
+		direction = Vector2.RIGHT
+
 	elif Input.is_action_pressed("ui_left"):
-		direction.x = -1
+		direction = Vector2.LEFT
+
 	elif Input.is_action_pressed("ui_down"):
-		direction.y = 1
+		direction = Vector2.DOWN
+
 	elif Input.is_action_pressed("ui_up"):
-		direction.y = -1
+		direction = Vector2.UP
 
-	velocity = direction * speed
-	move_and_slide()
+	# Intentar mover
+	if direction != Vector2.ZERO:
 
-	if direction == Vector2.ZERO:
-		position.x = round(position.x / grid_size) * grid_size
-		position.y = round(position.y / grid_size) * grid_size
+		var movement = direction * grid_size
+
+		# test_move verifica colisión ANTES
+		if not test_move(transform, movement):
+
+			target_position += movement
+			moving = true

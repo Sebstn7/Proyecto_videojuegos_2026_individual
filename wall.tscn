@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://djuctcldryi3g"]
+
+[ext_resource type="Script" uid="uid://duqqwa2sgo3k5" path="res://wallpolygon.gd" id="1_xxgf6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4f30"]
+size = Vector2(32, 32)
+
+[node name="Wall" type="StaticBody2D" unique_id=338934595]
+z_index = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1184752750]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_y4f30")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1378024019]
+script = ExtResource("1_xxgf6")

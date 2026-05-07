@@ -1,12 +1,29 @@
 extends Node2D
 
 var grid_size = 32
-var width = 800
-var height = 600
+
+var columns = 15
+var rows = 15
+
+var width = columns * grid_size
+var height = rows * grid_size
 
 func _draw():
-	for x in range(0, width, grid_size):
-		draw_line(Vector2(x, 0), Vector2(x, height), Color(0.5, 0.5, 0.5))
 
-	for y in range(0, height, grid_size):
-		draw_line(Vector2(0, y), Vector2(width, y), Color(0.5, 0.5, 0.5))
+	# Líneas verticales
+	for x in range(columns + 1):
+		draw_line(
+			Vector2(x * grid_size, 0),
+			Vector2(x * grid_size, height),
+			Color(0.5, 0.5, 0.5),
+			1
+		)
+
+	# Líneas horizontales
+	for y in range(rows + 1):
+		draw_line(
+			Vector2(0, y * grid_size),
+			Vector2(width, y * grid_size),
+			Color(0.5, 0.5, 0.5),
+			1
+		)

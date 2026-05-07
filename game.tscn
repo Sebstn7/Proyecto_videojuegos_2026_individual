@@ -2,23 +2,34 @@
 
 [ext_resource type="Script" uid="uid://d2f58gk68lnib" path="res://player.gd" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://nyp2lmlfa7q0" path="res://grid.gd" id="2_e2o6t"]
-[ext_resource type="Script" uid="uid://dhac0pqoic4yf" path="res://polygon_2d.gd" id="2_feb5d"]
+[ext_resource type="Script" uid="uid://bepsqag72xi7r" path="res://polygonplayer.gd" id="3_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://cw7pcdkq6f3ym" path="res://enemy.tscn" id="4_fc0e3"]
+[ext_resource type="Script" uid="uid://biqirpv041t26" path="res://map.gd" id="5_7jktm"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2o6t"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jktm"]
+size = Vector2(28, 28)
 
 [node name="Game" type="Node2D" unique_id=557638204]
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=786476261]
-script = ExtResource("1_80nbo")
+[node name="Grid" type="Node2D" parent="." unique_id=1231038755]
+script = ExtResource("2_e2o6t")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1874678862]
-shape = SubResource("RectangleShape2D_e2o6t")
-debug_color = Color(0.37127265, 0.47786075, 1, 0.41960785)
+[node name="Player" type="CharacterBody2D" parent="." unique_id=786476261]
+z_index = 100
+position = Vector2(96, 96)
+script = ExtResource("1_80nbo")
 
 [node name="Polygon2D" type="Polygon2D" parent="Player" unique_id=1794263376]
 color = Color(0.1882353, 0.07450981, 1, 1)
-offset = Vector2(32, 32)
-script = ExtResource("2_feb5d")
+script = ExtResource("3_fc0e3")
 
-[node name="Grid" type="Node2D" parent="." unique_id=1231038755]
-script = ExtResource("2_e2o6t")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1725632104]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_7jktm")
+
+[node name="Enemy" parent="." unique_id=542387746 instance=ExtResource("4_fc0e3")]
+z_index = 2
+position = Vector2(416, 192)
+
+[node name="Map" type="Node2D" parent="." unique_id=1445080665]
+script = ExtResource("5_7jktm")

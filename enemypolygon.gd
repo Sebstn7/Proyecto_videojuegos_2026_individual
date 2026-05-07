@@ -8,4 +8,4 @@ func _ready():
 		Vector2(0, 32)
 	]
 	
-	color = Color(1, 1, 1) 
+	color = Color(1, 0, 0) # rojo para enemigo
