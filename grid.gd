@@ -10,7 +10,7 @@ var height = rows * grid_size
 
 func _draw():
 
-	# Líneas verticales
+	# columnas
 	for x in range(columns + 1):
 		draw_line(
 			Vector2(x * grid_size, 0),
@@ -19,7 +19,7 @@ func _draw():
 			1
 		)
 
-	# Líneas horizontales
+	# filas
 	for y in range(rows + 1):
 		draw_line(
 			Vector2(0, y * grid_size),

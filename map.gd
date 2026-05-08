@@ -2,10 +2,8 @@ extends Node2D
 
 var grid_size = 32
 
-# Tamaño del mapa
 var map_size = 13
 
-# Centrado dentro de 15x15
 var start_x = 1
 var start_y = 1
 
@@ -19,7 +17,6 @@ func generate_walls():
 	for x in range(map_size):
 		for y in range(map_size):
 
-			# Solo crea paredes en el borde
 			if x == 0 or y == 0 or x == map_size - 1 or y == map_size - 1:
 
 				var wall = wall_scene.instantiate()

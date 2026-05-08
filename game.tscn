@@ -29,7 +29,7 @@ shape = SubResource("RectangleShape2D_7jktm")
 
 [node name="Enemy" parent="." unique_id=542387746 instance=ExtResource("4_fc0e3")]
 z_index = 2
-position = Vector2(416, 192)
+position = Vector2(224, 224)
 
 [node name="Map" type="Node2D" parent="." unique_id=1445080665]
 script = ExtResource("5_7jktm")

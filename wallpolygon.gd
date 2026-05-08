@@ -8,4 +8,4 @@ func _ready():
 		Vector2(0, 32)
 	]
 	
-	color = Color(0.4, 0.4, 0.4) # gris
+	color = Color(0.4, 0.4, 0.4) 

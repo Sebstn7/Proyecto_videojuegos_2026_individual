@@ -10,7 +10,6 @@ func _ready():
 
 func _physics_process(delta):
 
-	# Movimiento suave
 	if moving:
 
 		global_position = global_position.move_toward(
@@ -18,7 +17,6 @@ func _physics_process(delta):
 			move_speed * delta
 		)
 
-		# Llegó a la celda
 		if global_position.distance_to(target_position) < 1:
 
 			global_position = target_position
@@ -26,7 +24,6 @@ func _physics_process(delta):
 
 		return
 
-	# Dirección
 	var direction = Vector2.ZERO
 
 	if Input.is_action_pressed("ui_right"):
@@ -41,12 +38,10 @@ func _physics_process(delta):
 	elif Input.is_action_pressed("ui_up"):
 		direction = Vector2.UP
 
-	# Intentar mover
 	if direction != Vector2.ZERO:
 
 		var movement = direction * grid_size
 
-		# test_move verifica colisión ANTES
 		if not test_move(transform, movement):
 
 			target_position += movement
