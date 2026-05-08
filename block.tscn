@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bcrt38t0n0p5o"]
+
+[ext_resource type="Script" uid="uid://cvpv08btvp2fe" path="res://polygonblock.gd" id="1_im0tn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xfwl5"]
+size = Vector2(28, 28)
+
+[node name="Block" type="StaticBody2D" unique_id=424039932]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=464411696]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_xfwl5")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1959592694]
+script = ExtResource("1_im0tn")
