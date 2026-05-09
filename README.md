@@ -1,4 +1,5 @@
 # Elementals
+Nota: el segundo commit "s" se debio llamar "Segundo avance: Integracion de Enemy, wall,map y mejora de player,
 
 Juego 2D tipo puzzle-acción desarrollado en Godot utilizando GDScript.
 
