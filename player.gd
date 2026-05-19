@@ -180,4 +180,10 @@ func check_goals():
 
 		elif current_scene == "res://game_level3.tscn":
 
-			print("GANASTE")
+			var win_label = tree.current_scene.get_node(
+				"UI2/WinLabel"
+			)
+
+			win_label.visible = true
+
+			tree.paused = true
