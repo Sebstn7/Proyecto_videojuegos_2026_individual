@@ -11,9 +11,16 @@ config_version=5
 [application]
 
 config/name="Videojuego"
-run/main_scene="uid://pkx1ppk2j0ha"
+run/main_scene="uid://eix7pgeskewl"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=500
+window/size/viewport_height=500
+window/stretch/mode="canvas_items"
+window/stretch/scale_mode="integer"
 
 [input]
 
