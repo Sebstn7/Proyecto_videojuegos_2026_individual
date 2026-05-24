@@ -12,6 +12,11 @@ var hold_delay = 0.1
 
 var changing_level = false
 
+var goals_label = null
+var timer_label = null
+
+var time_left = 60.0
+
 @onready var block_scene = preload("res://block.tscn")
 
 func _ready():
@@ -19,6 +24,14 @@ func _ready():
 	target_position = global_position
 
 func _physics_process(delta):
+
+	update_goals_label()
+
+	update_timer(delta)
+
+	if not changing_level:
+
+		check_goals()
 
 	# CAMBIAR NIVELES
 	if Input.is_action_just_pressed("level1"):
@@ -100,10 +113,6 @@ func _physics_process(delta):
 
 		create_block()
 
-	if not changing_level:
-
-		check_goals()
-
 func move_player(direction):
 
 	var movement = direction * grid_size
@@ -144,6 +153,80 @@ func create_block():
 
 	get_parent().add_child(block)
 
+func update_goals_label():
+
+	if not is_inside_tree():
+		return
+
+	var tree = get_tree()
+
+	if tree == null:
+		return
+
+	if not tree.current_scene.has_node(
+		"UI/GoalsLabel"
+	):
+		return
+
+	goals_label = tree.current_scene.get_node(
+		"UI/GoalsLabel"
+	)
+
+	var remaining = tree.get_nodes_in_group(
+		"goals"
+	).size()
+
+	var collected = 3 - remaining
+
+	goals_label.text = (
+		str(collected) +
+		" / 3"
+	)
+
+func update_timer(delta):
+
+	if not is_inside_tree():
+		return
+
+	var tree = get_tree()
+
+	if tree == null:
+		return
+
+	if not tree.current_scene.has_node(
+		"UI/TimerLabel"
+	):
+		return
+
+	timer_label = tree.current_scene.get_node(
+		"UI/TimerLabel"
+	)
+
+	time_left -= delta
+
+	if time_left < 0:
+
+		time_left = 0
+
+	timer_label.text = (
+		"Time: " +
+		str(int(time_left))
+	)
+
+	if time_left <= 0:
+
+		tree.paused = true
+
+		if tree.current_scene.has_node(
+			"UI/GameOverLabel"
+		):
+
+			var game_over_label = tree.current_scene.get_node(
+				"UI/GameOverLabel"
+			)
+
+			game_over_label.visible = true
+
 func check_goals():
 
 	if not is_inside_tree():
@@ -180,10 +263,14 @@ func check_goals():
 
 		elif current_scene == "res://game_level3.tscn":
 
-			var win_label = tree.current_scene.get_node(
+			if tree.current_scene.has_node(
 				"UI2/WinLabel"
-			)
+			):
 
-			win_label.visible = true
+				var win_label = tree.current_scene.get_node(
+					"UI2/WinLabel"
+				)
+
+				win_label.visible = true
 
 			tree.paused = true

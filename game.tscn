@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://d2f58gk68lnib" path="res://player.gd" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://nyp2lmlfa7q0" path="res://grid.gd" id="2_e2o6t"]
 [ext_resource type="Script" uid="uid://bepsqag72xi7r" path="res://polygonplayer.gd" id="3_fc0e3"]
+[ext_resource type="Texture2D" uid="uid://b5swt8woeedfs" path="res://wizard1.PNG" id="4_eow3j"]
 [ext_resource type="PackedScene" uid="uid://cw7pcdkq6f3ym" path="res://enemy.tscn" id="4_fc0e3"]
 [ext_resource type="Script" uid="uid://biqirpv041t26" path="res://map.gd" id="5_7jktm"]
 [ext_resource type="PackedScene" uid="uid://dnahu4ulnncbl" path="res://goal.tscn" id="6_ryrav"]
@@ -21,12 +22,17 @@ position = Vector2(96, 96)
 script = ExtResource("1_80nbo")
 
 [node name="Polygon2D" type="Polygon2D" parent="Player" unique_id=1794263376]
+visible = false
 color = Color(0.1882353, 0.07450981, 1, 1)
 script = ExtResource("3_fc0e3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1725632104]
 position = Vector2(16, 16)
 shape = SubResource("RectangleShape2D_7jktm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1325636615]
+position = Vector2(16, 16)
+texture = ExtResource("4_eow3j")
 
 [node name="Enemy" parent="." unique_id=542387746 instance=ExtResource("4_fc0e3")]
 z_index = 2
@@ -37,7 +43,7 @@ script = ExtResource("5_7jktm")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1034506620]
 
-[node name="Label" type="Label" parent="UI" unique_id=1096982408]
+[node name="GameOverLabel" type="Label" parent="UI" unique_id=1096982408]
 visible = false
 offset_left = 200.0
 offset_top = 200.0
@@ -45,6 +51,20 @@ offset_right = 292.0
 offset_bottom = 223.0
 scale = Vector2(3, 3)
 text = "GAME OVER"
+
+[node name="GoalsLabel" type="Label" parent="UI" unique_id=407690383]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 50.0
+offset_bottom = 33.0
+text = "0/3"
+
+[node name="TimerLabel" type="Label" parent="UI" unique_id=927493095]
+offset_left = 420.0
+offset_top = 10.0
+offset_right = 481.0
+offset_bottom = 33.0
+text = "Time:60"
 
 [node name="Goal" parent="." unique_id=734839355 instance=ExtResource("6_ryrav")]
 position = Vector2(250, 250)
