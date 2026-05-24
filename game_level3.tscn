@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cw7pcdkq6f3ym" path="res://enemy.tscn" id="4_j6ddd"]
 [ext_resource type="Script" uid="uid://biqirpv041t26" path="res://map.gd" id="5_ivafu"]
 [ext_resource type="PackedScene" uid="uid://dnahu4ulnncbl" path="res://goal.tscn" id="6_darnk"]
+[ext_resource type="Theme" uid="uid://cyaq00171eck6" path="res://ui_theme.tres" id="6_ncajm"]
+[ext_resource type="FontFile" uid="uid://daxxi785haqri" path="res://font.ttf" id="7_j6ddd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7jktm"]
 size = Vector2(28, 28)
@@ -51,6 +53,9 @@ offset_left = 10.0
 offset_top = 10.0
 offset_right = 50.0
 offset_bottom = 33.0
+theme = ExtResource("6_ncajm")
+theme_override_fonts/font = ExtResource("7_j6ddd")
+theme_override_font_sizes/font_size = 20
 text = "0/3"
 
 [node name="TimerLabel" type="Label" parent="UI" unique_id=1184552218]
@@ -58,12 +63,18 @@ offset_left = 420.0
 offset_top = 10.0
 offset_right = 481.0
 offset_bottom = 33.0
+theme = ExtResource("6_ncajm")
+theme_override_fonts/font = ExtResource("7_j6ddd")
+theme_override_font_sizes/font_size = 20
 text = "Time:60"
 
 [node name="FadeRect" type="ColorRect" parent="UI" unique_id=778552178]
 visible = false
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Enemy2" parent="." unique_id=1057047736 instance=ExtResource("4_j6ddd")]

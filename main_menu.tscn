@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://eix7pgeskewl"]
 
 [ext_resource type="Script" uid="uid://yadnbebojrgw" path="res://main_menu.gd" id="1_06t4h"]
+[ext_resource type="FontFile" uid="uid://daxxi785haqri" path="res://font.ttf" id="2_7vrkn"]
 
 [node name="MainMenu" type="Control" unique_id=1369831952]
 layout_mode = 3
@@ -27,12 +28,18 @@ theme_override_constants/separation = 20
 
 [node name="Title" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1289219633]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7vrkn")
+theme_override_font_sizes/font_size = 50
 text = "ELEMENTALS"
 
 [node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=126765708]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7vrkn")
+theme_override_font_sizes/font_size = 30
 text = "JUGAR"
 
 [node name="ExitButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=353768914]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7vrkn")
+theme_override_font_sizes/font_size = 30
 text = "SALIR"

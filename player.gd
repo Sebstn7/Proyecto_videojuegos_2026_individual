@@ -14,6 +14,7 @@ var changing_level = false
 
 var goals_label = null
 var timer_label = null
+var fade_rect = null
 
 var time_left = 60.0
 
@@ -215,8 +216,6 @@ func update_timer(delta):
 
 	if time_left <= 0:
 
-		tree.paused = true
-
 		if tree.current_scene.has_node(
 			"UI/GameOverLabel"
 		):
@@ -227,7 +226,12 @@ func update_timer(delta):
 
 			game_over_label.visible = true
 
+		tree.paused = true
+
 func check_goals():
+
+	if changing_level:
+		return
 
 	if not is_inside_tree():
 		return
@@ -246,6 +250,24 @@ func check_goals():
 		changing_level = true
 
 		tree.paused = false
+
+		if tree.current_scene.has_node(
+			"UI/FadeRect"
+		):
+
+			fade_rect = tree.current_scene.get_node(
+				"UI/FadeRect"
+			)
+
+			fade_rect.visible = true
+
+			fade_rect.modulate.a = 0
+
+			for i in range(20):
+
+				fade_rect.modulate.a += 0.05
+
+				await get_tree().create_timer(0.03).timeout
 
 		var current_scene = tree.current_scene.scene_file_path
 
