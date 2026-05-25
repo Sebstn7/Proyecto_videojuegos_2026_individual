@@ -1,28 +1,38 @@
 [gd_scene format=3 uid="uid://bixkv5diu3bnh"]
 
 [ext_resource type="Script" uid="uid://nyp2lmlfa7q0" path="res://grid.gd" id="1_al587"]
+[ext_resource type="Texture2D" uid="uid://basl0m7pv68if" path="res://media/fondo2.PNG" id="1_jhl5n"]
 [ext_resource type="Script" uid="uid://d2f58gk68lnib" path="res://player.gd" id="2_7o17b"]
 [ext_resource type="Script" uid="uid://bepsqag72xi7r" path="res://polygonplayer.gd" id="3_bearg"]
 [ext_resource type="PackedScene" uid="uid://cw7pcdkq6f3ym" path="res://enemy.tscn" id="4_7xqyn"]
+[ext_resource type="Texture2D" uid="uid://b5swt8woeedfs" path="res://media/wizard1.PNG" id="5_dlenb"]
 [ext_resource type="Script" uid="uid://biqirpv041t26" path="res://map.gd" id="5_jhl5n"]
 [ext_resource type="PackedScene" uid="uid://dnahu4ulnncbl" path="res://goal.tscn" id="6_7o17b"]
 [ext_resource type="Theme" uid="uid://cyaq00171eck6" path="res://ui_theme.tres" id="6_bearg"]
-[ext_resource type="FontFile" uid="uid://daxxi785haqri" path="res://font.ttf" id="7_7xqyn"]
+[ext_resource type="FontFile" uid="uid://daxxi785haqri" path="res://media/font.ttf" id="7_7xqyn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7jktm"]
 size = Vector2(28, 28)
 
 [node name="Game" type="Node2D" unique_id=557638204]
 
+[node name="Background" type="TextureRect" parent="." unique_id=717793983]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_jhl5n")
+
 [node name="Grid" type="Node2D" parent="." unique_id=1231038755]
+visible = false
 script = ExtResource("1_al587")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=786476261]
+process_mode = 3
 z_index = 100
 position = Vector2(96, 96)
 script = ExtResource("2_7o17b")
 
 [node name="Polygon2D" type="Polygon2D" parent="Player" unique_id=1794263376]
+visible = false
 color = Color(0.1882353, 0.07450981, 1, 1)
 script = ExtResource("3_bearg")
 
@@ -30,22 +40,37 @@ script = ExtResource("3_bearg")
 position = Vector2(16, 16)
 shape = SubResource("RectangleShape2D_7jktm")
 
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1410540542]
+position = Vector2(16, 16)
+texture = ExtResource("5_dlenb")
+
 [node name="Enemy" parent="." unique_id=542387746 instance=ExtResource("4_7xqyn")]
 z_index = 2
 position = Vector2(224, 224)
 
 [node name="Map" type="Node2D" parent="." unique_id=1445080665]
+visible = false
 script = ExtResource("5_jhl5n")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1034506620]
 
 [node name="GameOverLabel" type="Label" parent="UI" unique_id=1096982408]
 visible = false
-offset_left = 200.0
-offset_top = 200.0
-offset_right = 292.0
-offset_bottom = 223.0
-scale = Vector2(3, 3)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -11.5
+offset_right = 46.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7607843)
+theme_override_fonts/font = ExtResource("7_7xqyn")
+theme_override_font_sizes/font_size = 100
 text = "GAME OVER"
 
 [node name="GoalsLabel" type="Label" parent="UI" unique_id=2031937512]
@@ -80,7 +105,7 @@ color = Color(0, 0, 0, 1)
 position = Vector2(320, 320)
 
 [node name="Goal" parent="." unique_id=734839355 instance=ExtResource("6_7o17b")]
-position = Vector2(250, 250)
+position = Vector2(240, 302)
 
 [node name="Goal2" parent="." unique_id=1500385134 instance=ExtResource("6_7o17b")]
 position = Vector2(80, 400)
