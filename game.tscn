@@ -31,6 +31,14 @@ z_index = 100
 position = Vector2(96, 96)
 script = ExtResource("1_80nbo")
 
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=769024543]
+visible = false
+limit_left = 0
+limit_top = 0
+limit_right = 500
+limit_bottom = 500
+position_smoothing_enabled = true
+
 [node name="Polygon2D" type="Polygon2D" parent="Player" unique_id=1794263376]
 visible = false
 color = Color(0.1882353, 0.07450981, 1, 1)

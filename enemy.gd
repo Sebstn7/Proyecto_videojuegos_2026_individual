@@ -61,13 +61,25 @@ func _physics_process(delta):
 
 	if global_position.distance_to(player.global_position) < 10:
 
-		var game_over_label = get_tree().current_scene.get_node(
-	"UI/GameOverLabel"
+		var tree = get_tree()
+
+		if tree.current_scene.has_node(
+		"UI/GameOverLabel"
+		):
+
+			var game_over_label = tree.current_scene.get_node(
+			"UI/GameOverLabel"
 		)
 
-		game_over_label.visible = true
+			game_over_label.visible = true
 
-		get_tree().paused = true
+		await get_tree().create_timer(3.0).timeout
+
+		tree.paused = false
+
+		tree.change_scene_to_file(
+		"res://main_menu.tscn"
+	)
 
 func can_move(movement):
 

@@ -25,11 +25,13 @@ func _ready():
 	target_position = global_position
 
 func _physics_process(delta):
+
 	if Input.is_action_just_pressed("restart"):
 
 		get_tree().paused = false
 
 		get_tree().reload_current_scene()
+
 	update_goals_label()
 
 	update_timer(delta)
@@ -144,7 +146,7 @@ func create_block():
 
 			var child_snapped = Vector2(
 				round(child.global_position.x / grid_size) * grid_size,
-				round(child.global_position.y / grid_size) * grid_size
+				round(child.global_position.y /grid_size) * grid_size
 			)
 
 			if child_snapped == block_position:
@@ -157,6 +159,8 @@ func create_block():
 	block.global_position = block_position
 
 	get_parent().add_child(block)
+
+	shake_camera()
 
 func update_goals_label():
 
@@ -230,7 +234,13 @@ func update_timer(delta):
 
 			game_over_label.visible = true
 
-		tree.paused = true
+		await get_tree().create_timer(2.0).timeout
+
+		tree.paused = false
+
+		tree.change_scene_to_file(
+			"res://main_menu.tscn"
+		)
 
 func check_goals():
 
@@ -301,6 +311,30 @@ func check_goals():
 
 				await get_tree().create_timer(3.0).timeout
 
+				tree.paused = false
+
 				tree.change_scene_to_file(
 					"res://main_menu.tscn"
 				)
+
+func shake_camera():
+
+	var camera = get_node_or_null("Camera2D")
+
+	if camera == null:
+		return
+
+	camera.position_smoothing_enabled = false
+
+	for i in range(6):
+
+		camera.offset = Vector2(
+			randf_range(-3, 3),
+			randf_range(-3, 3)
+		)
+
+		await get_tree().create_timer(0.02).timeout
+
+	camera.offset = Vector2.ZERO
+
+	camera.position_smoothing_enabled = true
