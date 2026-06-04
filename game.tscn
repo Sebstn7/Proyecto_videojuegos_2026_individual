@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dnahu4ulnncbl" path="res://goal.tscn" id="6_ryrav"]
 [ext_resource type="FontFile" uid="uid://daxxi785haqri" path="res://media/font.ttf" id="7_j5wjh"]
 [ext_resource type="Theme" uid="uid://cyaq00171eck6" path="res://ui_theme.tres" id="7_vef74"]
+[ext_resource type="PackedScene" uid="uid://bcrt38t0n0p5o" path="res://block.tscn" id="11_mfdv2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7jktm"]
 size = Vector2(28, 28)
@@ -117,3 +118,30 @@ position = Vector2(240, 302)
 position = Vector2(80, 400)
 
 [node name="Goal3" parent="." unique_id=1686749220 instance=ExtResource("6_ryrav")]
+
+[node name="Block" parent="." unique_id=424039932 instance=ExtResource("11_mfdv2")]
+position = Vector2(320, 384)
+
+[node name="Block2" parent="." unique_id=2019258772 instance=ExtResource("11_mfdv2")]
+position = Vector2(288, 384)
+
+[node name="Block3" parent="." unique_id=1018056042 instance=ExtResource("11_mfdv2")]
+position = Vector2(64, 352)
+
+[node name="Block4" parent="." unique_id=599262984 instance=ExtResource("11_mfdv2")]
+position = Vector2(96, 352)
+
+[node name="Block5" parent="." unique_id=1550596807 instance=ExtResource("11_mfdv2")]
+position = Vector2(96, 384)
+
+[node name="Block6" parent="." unique_id=1429047895 instance=ExtResource("11_mfdv2")]
+position = Vector2(160, 288)
+
+[node name="Block7" parent="." unique_id=1671926118 instance=ExtResource("11_mfdv2")]
+position = Vector2(160, 256)
+
+[node name="Block9" parent="." unique_id=534721290 instance=ExtResource("11_mfdv2")]
+position = Vector2(160, 192)
+
+[node name="Block11" parent="." unique_id=1100313174 instance=ExtResource("11_mfdv2")]
+position = Vector2(224, 128)

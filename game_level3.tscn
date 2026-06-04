@@ -11,6 +11,7 @@
 [ext_resource type="Theme" uid="uid://cyaq00171eck6" path="res://ui_theme.tres" id="6_ncajm"]
 [ext_resource type="FontFile" uid="uid://daxxi785haqri" path="res://media/font.ttf" id="7_j6ddd"]
 [ext_resource type="Texture2D" uid="uid://dbr3cuvla1v3o" path="res://media/enemy2.PNG" id="10_03rrc"]
+[ext_resource type="PackedScene" uid="uid://bcrt38t0n0p5o" path="res://block.tscn" id="12_h3ion"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7jktm"]
 size = Vector2(28, 28)
@@ -139,3 +140,96 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("7_j6ddd")
 theme_override_font_sizes/font_size = 100
 text = "GANASTE"
+
+[node name="Block" parent="." unique_id=424039932 instance=ExtResource("12_h3ion")]
+position = Vector2(320, 384)
+
+[node name="Block2" parent="." unique_id=1088408748 instance=ExtResource("12_h3ion")]
+position = Vector2(288, 384)
+
+[node name="Block3" parent="." unique_id=534250084 instance=ExtResource("12_h3ion")]
+position = Vector2(64, 352)
+
+[node name="Block4" parent="." unique_id=1191024729 instance=ExtResource("12_h3ion")]
+position = Vector2(96, 352)
+
+[node name="Block5" parent="." unique_id=1849484683 instance=ExtResource("12_h3ion")]
+position = Vector2(96, 384)
+
+[node name="Block6" parent="." unique_id=1603463752 instance=ExtResource("12_h3ion")]
+position = Vector2(160, 288)
+
+[node name="Block7" parent="." unique_id=1478052013 instance=ExtResource("12_h3ion")]
+position = Vector2(160, 256)
+
+[node name="Block8" parent="." unique_id=105298229 instance=ExtResource("12_h3ion")]
+position = Vector2(160, 224)
+
+[node name="Block9" parent="." unique_id=801965434 instance=ExtResource("12_h3ion")]
+position = Vector2(160, 192)
+
+[node name="Block10" parent="." unique_id=780665455 instance=ExtResource("12_h3ion")]
+position = Vector2(192, 160)
+
+[node name="Block11" parent="." unique_id=1259716303 instance=ExtResource("12_h3ion")]
+position = Vector2(224, 128)
+
+[node name="Block12" parent="." unique_id=2013229645 instance=ExtResource("12_h3ion")]
+position = Vector2(64, 320)
+
+[node name="Block13" parent="." unique_id=1407160191 instance=ExtResource("12_h3ion")]
+position = Vector2(96, 320)
+
+[node name="Block14" parent="." unique_id=337494959 instance=ExtResource("12_h3ion")]
+position = Vector2(128, 320)
+
+[node name="Block15" parent="." unique_id=571139961 instance=ExtResource("12_h3ion")]
+position = Vector2(160, 320)
+
+[node name="Block16" parent="." unique_id=1412875319 instance=ExtResource("12_h3ion")]
+position = Vector2(160, 352)
+
+[node name="Block17" parent="." unique_id=2085089195 instance=ExtResource("12_h3ion")]
+position = Vector2(128, 352)
+
+[node name="Block18" parent="." unique_id=610645647 instance=ExtResource("12_h3ion")]
+position = Vector2(128, 384)
+
+[node name="Block19" parent="." unique_id=1210510161 instance=ExtResource("12_h3ion")]
+position = Vector2(160, 384)
+
+[node name="Block20" parent="." unique_id=1549658877 instance=ExtResource("12_h3ion")]
+position = Vector2(256, 64)
+
+[node name="Block21" parent="." unique_id=1048636346 instance=ExtResource("12_h3ion")]
+position = Vector2(288, 64)
+
+[node name="Block22" parent="." unique_id=1728179590 instance=ExtResource("12_h3ion")]
+position = Vector2(320, 64)
+
+[node name="Block23" parent="." unique_id=1961661784 instance=ExtResource("12_h3ion")]
+position = Vector2(352, 64)
+
+[node name="Block24" parent="." unique_id=450921662 instance=ExtResource("12_h3ion")]
+position = Vector2(352, 96)
+
+[node name="Block25" parent="." unique_id=94436994 instance=ExtResource("12_h3ion")]
+position = Vector2(320, 96)
+
+[node name="Block26" parent="." unique_id=1750598830 instance=ExtResource("12_h3ion")]
+position = Vector2(288, 96)
+
+[node name="Block27" parent="." unique_id=225502459 instance=ExtResource("12_h3ion")]
+position = Vector2(256, 96)
+
+[node name="Block28" parent="." unique_id=1579666834 instance=ExtResource("12_h3ion")]
+position = Vector2(256, 128)
+
+[node name="Block29" parent="." unique_id=2082722992 instance=ExtResource("12_h3ion")]
+position = Vector2(288, 128)
+
+[node name="Block30" parent="." unique_id=1505843694 instance=ExtResource("12_h3ion")]
+position = Vector2(320, 128)
+
+[node name="Block31" parent="." unique_id=788856879 instance=ExtResource("12_h3ion")]
+position = Vector2(352, 128)
